@@ -213,6 +213,6 @@ class MainKtTest {
             amountOfTransfersInCurrentMonth = amountInCurrentMonth
         )
         //assert
-        assertEquals(3800, result)
+        assertEquals(0, result)
     }
 }
