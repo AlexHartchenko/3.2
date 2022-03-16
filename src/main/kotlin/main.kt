@@ -2,25 +2,25 @@ package ru.netology
 
 fun main() {
 
-    val card = "VkPay"
-    val transferAmount = 10_000_00
+    val card = "Maestro"
+    val transferAmount = 100_00
     val amountOfTransfersInCurrentMonth = 0
 
-    validationCheck(card, transferAmount, amountOfTransfersInCurrentMonth)
+    println(validationCheck(card, transferAmount, amountOfTransfersInCurrentMonth))
 }
 
-private fun validationCheck(card: String, transferAmount: Int, amountOfTransfersInCurrentMonth: Int) {
-    if (card == "VkPay" && (transferAmount > 15_000_00 || amountOfTransfersInCurrentMonth > 40_000_00)) {
-        println("Перевод невозможен! Превышен лимит!")
+fun validationCheck(card: String, transferAmount: Int, amountOfTransfersInCurrentMonth: Int): String {
+    return if (card == "VkPay" && (transferAmount > 15_000_00 || amountOfTransfersInCurrentMonth > 40_000_00)) {
+       "Перевод невозможен! Превышен лимит!"
     } else if (transferAmount < 150_000_00 && amountOfTransfersInCurrentMonth < 600_000_00) {
         val commission = calculateCommission(card, transferAmount, amountOfTransfersInCurrentMonth)
-        println("Комиссия с вашего перевода составит: $commission коп.")
+        "Комиссия с вашего перевода составит: $commission коп."
     } else {
-        println("Перевод невозможен! Превышен лимит!")
+        "Перевод невозможен! Превышен лимит!"
     }
 }
 
-private fun calculateCommission(card: String, transferAmount: Int, amountOfTransfersInCurrentMonth: Int): Int =
+fun calculateCommission(card: String, transferAmount: Int, amountOfTransfersInCurrentMonth: Int): Int =
 
     when (card) {
         "VkPay" -> 0
