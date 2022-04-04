@@ -4,7 +4,7 @@ plugins {
 }
 jacoco {
     toolVersion = "0.8.7"
-    reportsDirectory = layout.buildDirectory.dir('JacocoReportDir')
+    reportsDirectory = layout.buildDirectory.dir('reports/jacoco')
 }
 
 
